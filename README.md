@@ -1,92 +1,146 @@
-# Yshop Drink
+
+
+## 平台简介
+
+意象点餐(扫码点餐)系统，在线点餐(外卖与自取)小程序模式，支持多门店模式，SaaS多租户模式,基础技术Java17，springboot3、vue3、uniapp(vue3)（支持H5、微信小程序）
+采用当前流行技术组合的前后端分离点餐系统： SpringBoot3、Spring Security OAuth2、MybatisPlus、SpringSecurity、jwt、redis、Vue3的前后端分离的系统， 
+包含外卖与自取、商品管理(多规格sku)、店铺管理、云小票打印、图片素材库、订单管理、积分兑换(积分+金额)、充值、优惠券、充值、多门店、微信公众号、商家中心、提前预约、桌面扫码点餐(单人或者多人协同)、收银台(支持扫码枪与扫码盒子收款)、会员卡、桌台点餐等功能，更适合企业或个人二次开发.
+
+官网地址：[https://www.yixiang.co/](https://www.yixiang.co/)
 
 
 
-## Getting started
+## 演示地址
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+| 后台登陆：  | https://dc.yixiang.co   账号/密码：admin/admin123  |
+|---|---|
+| 门店登陆： | https://dc.yixiang.co   账号/密码：yixiang001/123456789  |
+|  移动端演示：关注右边公众号点击菜单其他系统体验点餐小程序与点餐H5，其中如果演示使用验证码登陆的点击下验证码默认验证码是9999 | ![输入图片说明](assets/77a93e8c07a913b838a756abadb383b9.png) |
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## 视频资料
+如果对您有帮助，您可以点右上角 "Star" 支持一下，这样我们才有继续免费下去的动力，谢谢！ QQ交流群 (入群前，请在网页右上角点 "Star" )，群里有视频教程哦！！
 
-## Add your files
+交流QQ群：544263002
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## 项目说明
+    
 
 ```
-cd existing_repo
-git remote add origin http://gitlab.yeepay.com/dachong.wang/yshop-drink.git
-git branch -M master
-git push -uf origin master
+    yshop-drink.             Java工程
+    yshop-drink-vue          后台前端vue3工程
+    yshop-drink-uniapp-vue3  移动端uniapp(vue3版本)工程，支持微信小程序、h5
 ```
 
-## Integrate with your tools
 
-- [ ] [Set up project integrations](http://gitlab.yeepay.com/dachong.wang/yshop-drink/-/settings/integrations)
+## 本地快速启动
+  ##### 1、环境要求
+   
+    ```
+        jdk17
+        mysql8
+        redis6+
+        node16+
+        maven3.8+
+    
+    ```
+  ##### 2、开发工具
+   
+    ```
+        idea
+        vscode
+        hbuilder
+    
+    ```
+ ##### 3、后端启动
 
-## Collaborate with your team
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+-   3.1 请使用idea打开Java工程，自动会安装依赖
+-   3.2 创建数据库且导入工程目录下sql/yixiang-drink.sql 文件
+-   3.3 找到项目下的yshop-server 的yml,修改数据库相关信息和redis相关信息，如图：
+     ![输入图片说明](assets/image.png)
+-   3.4 工程下输入
+    ``` 
+    mvn clean install package '-Dmaven.test.skip=true
+    ```
+-   3.5 启动项目，如图
+    ![输入图片说明](assets/1702544439568.jpg)
 
-## Test and Deploy
+##### 4、后台vue启动
 
-Use the built-in continuous integration in GitLab.
+ - 4.1 vscode 打开vue工程，在目录下输入命令: 
+    ``` 
+    pnpm install
+    ```
+ - 4.2 配置api如图
+ ![输入图片说明](assets/1702544756749.jpg)
+ - 4.3 本地启动:
+    ```
+     npm run dev
+    ```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+##### 5 移动端uniapp启动
+ 
+  - 5.1 hbuilder导入uniapp项目，
+  - 5.2 配置api
+   ![输入图片说明](assets/WX20231214-171211@2x.png)
+  - 5.3 配置小程序
+   ![输入图片说明](assets/WX20231214-171416@2x.png)
+  - 5.4 运行小程序
+    ![输入图片说明](assets/WX20231214-171514@2x.png)
+  - 5.5 运行h5
+   
+    ![输入图片说明](assets/1702545370856.jpg)
+-
 
-***
 
-# Editing this README
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## 小程序截图
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+| ![输入图片说明](assets/20240901175929.png)| ![输入图片说明](assets/202409011759291.png) |
+|---|---|
+| ![输入图片说明](assets/20240901175927.jpg)  |  ![输入图片说明](assets/202409011759281.png) |
+| ![输入图片说明](assets/20240901175928.png) |  |
 
-## Name
-Choose a self-explaining name for your project.
+## 后台截图
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+| ![输入图片说明](assets/WX20231208-120203@2x.png) | ![输入图片说明](assets/20231211104714.jpg)|
+|---|---|
+| ![输入图片说明](assets/WX20231208-120320@2x.png)  | ![输入图片说明](assets/WX20231208-120338@2x.png) |
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## 技术栈
+- Spring Boot3
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+- Spring Security oauth2
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+- MyBatis
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+- MyBatisPlus
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+- Redis
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+- lombok
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+- hutool
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+- Vue3
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+- Element UI
 
-## License
-For open source projects, say how it is licensed.
+- uniapp(vue3)
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## 特别鸣谢
+
+
+- ruoyi-vue-pro:https://gitee.com/zhijiantianya/ruoyi-vue-pro
+- element-plus:https://element-plus.gitee.io/zh-CN/
+- vue:https://cn.vuejs.org/
+- pay-java-parent:https://gitee.com/egzosn/pay-java-parent
+- uvui：https://www.uvui.cn/
+- uniapp:https://uniapp.dcloud.net.cn/
+
+
+## 开源协议
+
+本项目采用比 Apache 2.0 更宽松的 [MIT License](https://gitee.com/guchengwuyue/yshop-drink/blob/master/LICENSE) 开源协议，个人与企业可 100% 免费使用，不用保留类作者、Copyright 信息。
+

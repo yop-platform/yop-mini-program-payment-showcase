@@ -1,0 +1,11 @@
+{
+  "app_key": "您的测试应用",
+  "isv_private_key": [
+    {
+      "app_key": "您的测试应用",
+      "store_type": "string",
+      "cert_type": "RSA2048",
+      "value": "您的测试密钥"
+    }
+  ]
+}
